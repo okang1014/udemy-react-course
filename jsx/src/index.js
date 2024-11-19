@@ -10,44 +10,35 @@ const root = ReactDOM.createRoot(el);
 
 // 4) create a component
 function App() {
-  // <h1>this is h1 tag</h1>
-  // 단순히 태그를 입력한다고 해서 화면이 출력되는 것은 아님
-  // 컴포넌트에서 return 해야 화면에 출력
+  // props - adds properties to a component
 
-  let message = 'bye there';
-  if (Math.random() > 0.5) {
-    message = 'hello there';
-  }
+  // 변수를 선언할 수 있지만 직접 props 에 적용할 수 있음
+  // const inputType = "number";
+  // const minValue = 5;
 
-  // const message = true;
-  // React cannot render boolean type, null, undefined
-  // unexpected result can be rendered if the variable is either boolean, null, undefined or array
-  // if the variable is an object
+  // return <input type="number" min={5} style={{ border: '3px solid red' }} />;
+  /* <input
+  type="number"
+  min={3}
+  max={10}
+  list={[1, 2, 3]} arrays
+  style={{color: 'red'}} objects => JSX 에서는 객체를 렌더링해서 화면에 표현할 수 없지만, prop 으로 전달 가능
+  alt={message} */
 
-  // message = {};
-  // Objects cannot be children of an element
-  // undefined 값 반환 
+  // return <textarea autoFocus={true} />
+  // all prop names follow camelCase - compound words should be in camelCase
 
-  // 추가로 표현식을 중괄호에 삽입하여 값을 출력하게 할 수 있음
-  // 변수로 대입해서 변수를 태그의 중괄호에 삽입해도 되지만 직접 괄호 내에 표현식을 삽입할 수 있음
-  // const date = new Date();
-  // const time = date.toLocaleTimeString();
+  // return <input maxLength={5} autoFocus />
+  // number attributes use curly braces
 
-  return (
-    <>
-      <h1>{message}</h1>
-      {/* <h2>{time}</h2> */}
-      <h2>{new Date().toLocaleTimeString()}</h2>
-    </>
-  );
-  // 보간법은 중괄호 내부에 JS 코드를 삽입할 수 있음, 그리고 동적으로 해당 값을 변경하여 출력하게 할 수 있음
+  // return <input maxLength={5} spellCheck />
+  // boolean 'true' can be written with just the props name, but false should be written + boolean 값은 중괄호 안에
 
+  // class attribute is written as className
 
-
+  return <h1 maxLength={5} style={{ textDecoration: 'underline', padding: '5px', color: 'red' }}>Yo</h1>
+  // in-line styles should be provided as objects
 }
 
 // 5) show the component on the screen
 root.render(<App />);
-
-// JSX 를 사용하는 이유
-// 직관성이 뛰어나고, 가독성이 뛰어남
